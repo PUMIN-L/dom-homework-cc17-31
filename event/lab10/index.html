@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Lab 10
+    <hr>
+    <!-- 
+จงสร้าง Label และ Select ดังรูป
+เมื่อ click <select> ของ Province ให้แสดงรายชื่อจังหวัด
+เมื่อ click <select> ของ District ให้แสดงอำเภอของจังหวัดที่ถูกเลือก
+-->
+
+    <label for="province">Province :</label>
+
+    <select name="province" id="province">
+        <option value="Select">Select</option>
+        <option value="bangkok">Bangkok</option>
+        <option value="nonthaburi">Nonthabuti</option>
+    </select>
+
+    <br>
+    <br>
+
+    <label for="district">District :</label>
+
+    <select name="district" id="district">
+        <option value="Select">Select</option>
+    </select>
+
+
+    <script>
+        const province = document.querySelector("#province")
+        const district = document.querySelector("#district")
+        const option = document.querySelectorAll("option")
+
+
+
+        province.addEventListener("click", (e) => {
+            console.log(e.target.value)
+            if(e.target.value === "bangkok") {
+                district.innerHTML = ` <option value="Select">Select</option>
+                                       <option value="dusit">Dusit</option>
+                                       <option value="chatuchak">Chatuchak</option>
+                                       <option value="bangNa">Bang Na</option>`
+            }
+
+            if(e.target.value === "nonthaburi") {
+                district.innerHTML = ` <option value="Select">Select</option>
+                                       <option value="mueangNonthaburi">Mueang Nonthaburi</option>
+                                       <option value="bangYai">Bang Yai</option>
+                                       <option value="bangBuaThong">Bang Bua Thong</option>`
+            }
+
+            if(e.target.value === "Select") {
+                district.innerHTML = ` <option value="Select">Select</option>`
+            }
+
+
+        })
+
+    </script>
+</body>
+
+</html>

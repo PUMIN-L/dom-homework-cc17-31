@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Lab 12
+    <hr>
+    <!-- 
+จงสร้าง Todo List ดังรูป
+เมื่อผู้ใช้ click Add ให้เพิ่มรายการ
+เมื่อผู้ใช้ click Edit ให้แก้ไขข้อความ
+เมื่อผู้ใช้ click Del ให้ลบรายการ
+เมื่อผู้ใช้ click ที่รายการใน List ให้
+Toggle เส้นที่ขีดค่าข้อความ
+-->
+    <button class="add">Add</button>
+
+    <script>
+        let num = 1
+        const button = document.querySelector(".add")
+        button.addEventListener("click", () => {
+            const task = document.createElement("div")
+
+            const pElement = document.createElement("p")
+            pElement.innerText = `Task ${num}`
+            task.append(pElement)
+            pElement.addEventListener("click", middleLine)
+
+            const editButton = document.createElement("button")
+            editButton.innerText = 'Edit'
+            task.append(editButton)
+            editButton.addEventListener("click", edit)
+
+
+            const delButton = document.createElement("button")
+            delButton.innerText = 'Del'
+            task.append(delButton)
+            delButton.addEventListener("click", deleteDunction)
+
+            document.body.append(task)
+            num++
+
+        })
+
+        function deleteDunction() {
+            this.parentElement.textContent = ""
+        }
+
+        function edit() {
+            const text = this.previousElementSibling
+            let newText = prompt("Edit task name", text.textContent)
+            if (newText && newText.trim()) text.textContent = newText
+        }
+
+
+        function middleLine() {
+            this.classList.toggle("middleLine")
+            if (this.classList.contains("middleLine")) {
+                this.style.textDecoration = "line-through"
+                this.style.color = "green"
+            } else {
+                this.style.textDecoration = ""
+                this.style.color = ""
+            }
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>

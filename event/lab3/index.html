@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Lab 3
+    จงสร้าง Form ที่มี Button สำหรับ submit form และเขียนคำสั่งเพื่อยกเลิกการส่ง request ไปที่ server เมื่อผู้ใช้งานกด submit form
+    
+    <form action="https://google.com" onsubmit>
+        <h1>This is Form !!</h1>
+        <button>Submit go to google</button>
+    </form>
+
+   
+    <script>
+    
+        const form = document.querySelector("form")
+        form.addEventListener("click", (p) => {p.preventDefault()})
+       
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Lab 4
+    <hr>
+    <!-- จงสร้างลิงค์ <a> Tag มีข้อความว่า “Google”
+เมื่อผู้ใช้ click link ให้ขึ้นคำถามว่า “Leave for https://google.com?”
+ถ้าผู้ใช้กด OK ให้ redirect ไปที่ https://google.com
+ถ้าผู้ใช้กด Cancel ให้ยกเลิก redirect ไปที่ https://google.com -->
+
+
+
+    <a href="">Google</a>
+
+    <form action="https://google.com" style="display: none" ;>
+
+        <p>"Leave for https://google.com?"</p>
+        <button id="btn1">OK</button>
+        <button id="btn2">Cancel</button>
+
+    </form>
+
+
+    <script>
+
+        const a = document.querySelector("a")
+        const form = document.querySelector("form")
+        const okBtn = document.getElementById("btn1")
+        const cancelBtn = document.getElementById("btn2")
+
+        a.addEventListener("click", (e) => {
+            e.preventDefault()
+            form.style.display = ""
+
+            cancelBtn.addEventListener("click", () => {
+                form.action = ""
+                form.style.display = "none"
+
+
+            })
+
+
+            okBtn.addEventListener("click", (e) => {
+                form.submit()
+            })
+        })
+
+
+
+    </script>
+</body>
+
+</html>
